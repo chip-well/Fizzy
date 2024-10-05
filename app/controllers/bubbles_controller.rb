@@ -27,7 +27,7 @@ class BubblesController < ApplicationController
   end
 
   def create
-    @bubble = @bucket.bubbles.create!(bubble_params)
+    @bubble = @bucket.bubbles.create!
     redirect_to bucket_bubble_url(@bucket, @bubble)
   end
 
@@ -48,6 +48,6 @@ class BubblesController < ApplicationController
     end
 
     def bubble_params
-      params.fetch(:bubble, {}).permit(:title, :color, :due_on, :image, tag_ids: [])
+      params.require(:bubble).permit(:title, :color, :due_on, :image, tag_ids: [])
     end
 end
