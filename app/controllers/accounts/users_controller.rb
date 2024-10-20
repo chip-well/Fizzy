@@ -13,7 +13,7 @@ class Accounts::UsersController < ApplicationController
 
   private
     def set_user
-      @user = Current.account.users.active.find(params.expect(:id))
+      @user = Current.account.users.active.find(params[:id])
     end
 
     def ensure_permission_to_remove
