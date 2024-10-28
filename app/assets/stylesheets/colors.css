@@ -25,7 +25,7 @@
   --color-link: oklch(var(--lch-blue));
   --color-subtle-light: oklch(var(--lch-gray-light));
   --color-subtle: oklch(var(--lch-gray));
-  --color-subtle-dark: oklch(var(--lch-black));
+  --color-subtle-dark: oklch(var(--lch-gray-dark));
   --color-selected: oklch(var(--lch-blue-light));
   --color-selected-dark: oklch(var(--lch-blue-dark));
   --color-marker: oklch(var(--lch-orange));
