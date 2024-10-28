@@ -7,7 +7,7 @@ module Bubble::Eventable
 
   private
     def track_event(action, creator: Current.user, **particulars)
-      find_or_capture_event_summary.events.create action: action, creator: creator, particulars: particulars
+      find_or_capture_event_summary.events.create! action: action, creator: creator, particulars: particulars
     end
 
     def find_or_capture_event_summary
