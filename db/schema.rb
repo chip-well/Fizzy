@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_05_181312) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_05_224305) do
   create_table "accesses", force: :cascade do |t|
     t.integer "bucket_id", null: false
     t.integer "user_id", null: false
@@ -58,6 +58,13 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_05_181312) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "assignees_filters", id: false, force: :cascade do |t|
+    t.integer "filter_id", null: false
+    t.integer "assignee_id", null: false
+    t.index ["assignee_id"], name: "index_assignees_filters_on_assignee_id"
+    t.index ["filter_id"], name: "index_assignees_filters_on_filter_id"
+  end
+
   create_table "assignments", force: :cascade do |t|
     t.integer "assignee_id", null: false
     t.integer "bubble_id", null: false
@@ -92,6 +99,13 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_05_181312) do
     t.index ["creator_id"], name: "index_buckets_on_creator_id"
   end
 
+  create_table "buckets_filters", id: false, force: :cascade do |t|
+    t.integer "filter_id", null: false
+    t.integer "bucket_id", null: false
+    t.index ["bucket_id"], name: "index_buckets_filters_on_bucket_id"
+    t.index ["filter_id"], name: "index_buckets_filters_on_filter_id"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.text "body", null: false
     t.integer "creator_id", null: false
@@ -121,6 +135,13 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_05_181312) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creator_id", "params"], name: "index_filters_on_creator_id_and_params", unique: true
+  end
+
+  create_table "filters_tags", id: false, force: :cascade do |t|
+    t.integer "filter_id", null: false
+    t.integer "tag_id", null: false
+    t.index ["filter_id"], name: "index_filters_tags_on_filter_id"
+    t.index ["tag_id"], name: "index_filters_tags_on_tag_id"
   end
 
   create_table "messages", force: :cascade do |t|

@@ -1,4 +1,6 @@
 class Tag < ApplicationRecord
+  include Filterable
+
   belongs_to :account
 
   has_many :taggings, dependent: :destroy

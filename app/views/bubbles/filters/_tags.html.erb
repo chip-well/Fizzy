@@ -6,7 +6,7 @@
   <dialog class="filter__popup panel fill-white shadow" data-dialog-target="dialog" data-turbo-temporary>
     <menu class="filter__menu unpad margin-none">
       <% Current.account.tags.order(:title).each do |tag| %>
-        <li><%= link_to tag.title, bubbles_path(filter.to_params.merge(tag_ids: tag.id)) %></li>
+        <li><%= link_to tag.title, bubbles_path(filter.to_params.merge(tag_ids: [ tag.id ])) %></li>
       <% end %>
     </menu>
   </dialog>

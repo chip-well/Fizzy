@@ -8,7 +8,7 @@
       <li><%= link_to "all projects", bubbles_path(filter.to_params.merge(bucket_ids: nil)), class: "filter__button" %></li>
 
       <% Current.user.buckets.each do |bucket| %>
-        <li><%= link_to bucket.name, bubbles_path(filter.to_params.merge(bucket_ids: bucket.id)), class: "filter__button" %></li>
+        <li><%= link_to bucket.name, bubbles_path(filter.to_params.merge(bucket_ids: [ bucket.id ])), class: "filter__button" %></li>
       <% end %>
     </menu>
   </dialog>

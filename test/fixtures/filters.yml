@@ -1,3 +1,5 @@
 jz_assignments:
   creator: david
-  params: <%= { indexed_by: :most_discussed, assignments: ActiveRecord::FixtureSet.identify(:jz).to_s, tag_ids: ActiveRecord::FixtureSet.identify(:mobile).to_s }.to_json %>
+  params: <%= { indexed_by: :most_discussed }.to_json %>
+  tags: mobile
+  assignees: jz

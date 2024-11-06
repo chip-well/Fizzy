@@ -5,16 +5,16 @@
 
   <dialog class="filter__popup panel fill-white shadow" data-dialog-target="dialog" data-turbo-temporary>
     <menu class="filter__menu unpad margin-none">
-      <li><%= link_to "No one", bubbles_path(filter.to_params.merge(assignments: :unassigned)), class: "filter__button" %></li>
+      <li><%= link_to "No one", bubbles_path(filter.to_params.merge(assignments: :unassigned, assignee_ids: [])), class: "filter__button" %></li>
 
       <% Current.account.users.active.order(:name).each do |user| %>
-        <li><%= link_to user.name, bubbles_path(filter.to_params.merge(assignments: user.id)) %></li>
+        <li><%= link_to user.name, bubbles_path(filter.to_params.merge(assignments: nil, assignee_ids: [ user.id ])) %></li>
       <% end %>
     </menu>
   </dialog>
 
-  <% if filter.assignments.present? %>
-    <%= link_to bubbles_path(filter.to_params.without(:assignments)), class: "btn", style: "font-size: 0.4em;" do %>
+  <% if [ filter.assignees, filter.assignments ].any?(&:present?) %>
+    <%= link_to bubbles_path(filter.to_params.without(:assignments, :assignee_ids)), class: "btn", style: "font-size: 0.4em;" do %>
       <%= image_tag "remove.svg", aria: { hidden: true }, size: 24 %>
       <span class="for-screen-reader">Clear</span>
     <% end %>

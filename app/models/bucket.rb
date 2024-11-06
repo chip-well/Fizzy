@@ -1,4 +1,5 @@
 class Bucket < ApplicationRecord
+  include Filterable
   include Accessible
 
   belongs_to :account

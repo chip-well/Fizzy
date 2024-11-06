@@ -5,8 +5,8 @@ module FiltersHelper
   end
 
   def buckets_filter_text(filter)
-    if filter.buckets.any?
-      filter.buckets.pluck(:name).to_choice_sentence
+    if filter.buckets.present?
+      filter.buckets.map(&:name).to_choice_sentence
     else
       "all projects"
     end
@@ -14,7 +14,7 @@ module FiltersHelper
 
   def assignments_filter_text(filter)
     if filter.assignees.present?
-      "assigned to #{filter.assignees.pluck(:name).to_choice_sentence}"
+      "assigned to #{filter.assignees.map(&:name).to_choice_sentence}"
     elsif filter.assignments.unassigned?
       "assigned to no one"
     else

@@ -2,7 +2,7 @@ class FiltersController < ApplicationController
   before_action :set_filter, only: :destroy
 
   def create
-    @filter = Current.user.filters.create_or_find_by!(params: filter_params).tap(&:touch)
+    @filter = Current.user.filters.create_or_find_by_params!(filter_params).tap(&:touch)
     redirect_to bubbles_path(@filter.to_params)
   end
 
