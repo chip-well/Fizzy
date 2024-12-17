@@ -16,7 +16,7 @@
       <% end %>
     </div>
     <div class="comment__body txt-align-start">
-      <%= simple_format @comment.body %>
+      <%= sanitize @comment.body_html %>
     </div>
   </div>
 <% end %>
