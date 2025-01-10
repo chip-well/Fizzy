@@ -6,11 +6,11 @@ class BubbleTest < ActiveSupport::TestCase
   end
 
   test "capturing messages" do
-    assert_difference "bubbles(:logo).messages.count", +1 do
+    assert_difference "bubbles(:logo).messages.comments.count", +1 do
       bubbles(:logo).capture Comment.new(body: "Agreed.")
     end
 
-    assert_equal "Agreed.", bubbles(:logo).messages.last.messageable.body.to_plain_text.chomp
+    assert_equal "Agreed.", bubbles(:logo).messages.comments.last.messageable.body.to_plain_text.chomp
   end
 
   test "boosting" do
