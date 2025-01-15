@@ -3,10 +3,6 @@ module Filter::Summarized
     [ index_summary, tag_summary, assignee_summary, assigner_summary, terms_summary ].compact.to_sentence + " #{bucket_summary}"
   end
 
-  def plain_summary
-    summary.remove(/<\/?mark>/)
-  end
-
   private
     def index_summary
       indexed_by.humanize
@@ -21,7 +17,7 @@ module Filter::Summarized
     def assignee_summary
       if assignees.any?
         "assigned to #{assignees.pluck(:name).to_choice_sentence}"
-      elsif assignments.unassigned?
+      elsif assignment_status.unassigned?
         "assigned to no one"
       end
     end

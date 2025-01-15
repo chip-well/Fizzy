@@ -1,4 +1,4 @@
-<% @page_title = @filter.plain_summary %>
+<% @page_title = @filter.summary %>
 
 <% turbo_refreshes_with method: :morph, scroll: :preserve %>
 <%= render "filters/broadcasts", filter: @filter %>
@@ -25,7 +25,7 @@
   </nav>
 <% end %>
 
-<section class="windshield flex-inline flex-wrap gap justify-center align-end" style="view-transition-name: windshield_<%= params[:filter_id] %>">
+<section class="windshield flex-inline flex-wrap gap justify-center align-end" style="view-transition-name: windshield_<%= @filter.id %>">
   <% if @bubbles.any? %>
     <%= render partial: "bubbles/bubble", collection: @bubbles.limit(10), cached: true %>
   <% else %>

@@ -17,6 +17,6 @@ module Filter::Resources
   end
 
   def buckets
-    creator.buckets.where id: bucket_ids
+    creator.buckets.where id: super.ids
   end
 end

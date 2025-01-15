@@ -3,21 +3,27 @@ module Filter::Fields
 
   INDEXES = %w[ most_discussed most_boosted newest oldest popped ]
 
+  delegate :default_value?, to: :class
+
   class_methods do
-    def default_fields
+    def default_values
       { indexed_by: "most_active" }
+    end
+
+    def default_value?(key, value)
+      default_values[key.to_sym].eql?(value)
     end
   end
 
   included do
-    store_accessor :fields, :indexed_by, :assignments, :terms
+    store_accessor :fields, :assignment_status, :indexed_by, :terms
+
+    def assignment_status
+      super.to_s.inquiry
+    end
 
     def indexed_by
       (super || default_indexed_by).inquiry
-    end
-
-    def assignments
-      super.to_s.inquiry
     end
 
     def terms
@@ -26,13 +32,10 @@ module Filter::Fields
   end
 
   def default_indexed_by
-    default_fields[:indexed_by]
+    self.class.default_values[:indexed_by]
   end
 
   def default_indexed_by?
-    indexed_by == default_indexed_by
+    default_value?(:indexed_by, indexed_by)
   end
-
-  private
-    delegate :default_fields, to: :class, private: true
 end
