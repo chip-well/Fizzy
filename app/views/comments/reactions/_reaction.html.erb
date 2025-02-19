@@ -10,7 +10,7 @@
     </figure>
 
     <%= tag.span reaction.content, role: "button",
-        class: [ "txt-small", { "txt-medium": reaction.content.all_emoji? } ],
+        class: [ "txt-small", { "txt-medium": reaction.all_emoji? } ],
         data: { action: "click->reaction-delete#reveal keydown.enter->reaction-delete#reveal:prevent", reaction_delete_target: "content" } %>
     
     <%= button_to bucket_bubble_comment_reaction_path(comment.bubble.bucket, comment.bubble, comment, reaction),

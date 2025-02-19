@@ -5,4 +5,8 @@ class Reaction < ApplicationRecord
   scope :ordered, -> { order(:created_at) }
 
   validates_presence_of :content
+
+  def all_emoji?
+    content.match? /\A(\p{Emoji_Presentation}|\p{Extended_Pictographic}|\uFE0F)+\z/u
+  end
 end
