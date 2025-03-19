@@ -13,13 +13,13 @@
   </div>
 
   <div class="flex flex-column min-width txt-small align-start txt-align-start" style="color: color-mix(in srgb, var(--bubble-color) 40%, var(--color-ink));">
-    <div class="flex align-start gap">
+    <div class="flex align-start gap full-width">
       <strong class="event__title txt-break overflow-line-clamp txt-tight-lines">
         <%= event_action_sentence(event) %>
       </strong>
 
       <% if event_column(event) == 2 %>
-        <span class="event__icon">
+        <span class="event__icon flex-item-justify-end">
           <%= image_tag "#{event_action_icon(event)}.svg", size: 24, aria: { hidden: true }, class: "colorize--white" %>
         </span>
       <% end %>
