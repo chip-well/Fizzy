@@ -115,7 +115,7 @@
     Recently closed
   </h2>
   <section class="cards--grid">
-    <% if (popped_bubbles = Filter.from_params(@filter.as_params.merge(indexed_by: "popped")).tap { |f| f.creator = Current.user }.bubbles).any? %>
+    <% if (popped_bubbles = Filter.from_params(@filter.as_params.except(:stage_ids).merge(indexed_by: "popped")).tap { |f| f.creator = Current.user }.bubbles).any? %>
       <%= render partial: "bubbles/card", collection: popped_bubbles, as: :bubble, cached: true %>
     <% else %>
       <p class="txt-medium translucent">Nothing here</p>
