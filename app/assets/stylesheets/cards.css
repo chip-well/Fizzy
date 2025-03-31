@@ -16,7 +16,7 @@
     font-size: 1.8cqi;
     flex: 0 1 var(--card-size);
     inline-size: var(--card-size);
-    margin: calc(var(--block-space) * 1.5) auto;
+    margin: var(--block-space) auto calc(var(--block-space) * 1.5);
   }
 
   :is(.card--mini) {
@@ -26,7 +26,7 @@
     aspect-ratio: unset;
     line-height: 1.2;
     padding: calc(var(--block-space) * 1.5) var(--block-space);
-    margin: var(--block-space) auto;
+    margin: var(--block-space) auto calc(var(--block-space) * 1.5);
   
     .card__title {
       margin-block-start: 0.1em;
@@ -66,6 +66,10 @@
   padding-block: var(--block-space-half);
   position: relative;
   z-index: 0;
+
+  .card {
+    aspect-ratio: unset;
+  }
 }
 
 .card {
@@ -210,12 +214,13 @@
 
 .cards--grid {
   --block-space: 2cqi;
-  --container-gap: var(--block-space);
+  --container-gap: var(--block-space-double);
   --container-padding: calc(var(--block-space) * 1.5);
 
   container-type: inline-size;
   display: flex;
   flex-wrap: wrap;
+  gap: var(--container-gap);
   inline-size: 100%;
   margin: 0 auto;
   max-inline-size: 120ch;
@@ -379,6 +384,7 @@
   --input-padding: 0;
 
   color: inherit;
+  font-size: inherit;
   font-weight: inherit;
   inline-size: min-content;
   max-inline-size: 3ch;

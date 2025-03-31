@@ -1,4 +1,7 @@
 .filters {
+  position: absolute;
+  inset: auto auto -5.25em;
+
   #header:has(&) {
     position: relative;
     z-index: 1;

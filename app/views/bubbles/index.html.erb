@@ -12,7 +12,16 @@
 
     <div class="btn btn--placeholder flex-item-justify-start"></div>
 
-    <header class="flex flex-inline flex-column center flex-shrink txt--large">
+    <header class="flex flex-inline flex-column center flex-shrink">
+      <h1 class="txt-large margin-none-block-end">
+        <% if @filter.buckets.none? %>
+          All collections
+        <% elsif @filter.buckets.one? %>
+          <%= @filter.buckets.first.name %>
+        <% else %>
+          <%= pluralize(@filter.buckets.size, "project") %>
+        <% end %>
+      </h1>
       <%= render "bubbles/filters", filter: @filter %>
     </header>
 
@@ -53,10 +62,10 @@
 </div>
 
 <div class="margin-block">
-  <h2 class="txt-align-center flex-inline center txt-uppercase txt-medium margin-none-block-start">
+  <h2 class="txt-align-center flex-inline center txt-uppercase txt-medium margin-none">
     Recently closed
   </h2>
-  <section class="cards--grid gap position-relative">
+  <section class="cards--grid position-relative">
     <% if (popped_bubbles = Filter.from_params(@filter.as_params.merge(indexed_by: "popped")).tap { |f| f.creator = Current.user }.bubbles).any? %>
       <%= render partial: "bubbles/card", collection: popped_bubbles.limit(@display_count), as: :bubble, cached: true %>
     <% else %>

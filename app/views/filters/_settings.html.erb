@@ -1,23 +1,23 @@
 <div class="filters flex-inline align-center gap-half margin-block-end margin-block-start-half">
-  <button class="btn btn--plain txt-small" data-action="click->dialog#toggle">
+  <button class="btn borderless txt-medium" data-action="click->dialog#toggle">
     <%= icon_tag "filter" %>
     <span class="for-screen-reader">Filter</span>
   </button>
 
   <div class="flex-inline center align-center gap-half">
-    <%= render "filters/buckets", filter: filter %>
-    <%= render "filters/indexed_by", filter: filter %>
-    <%= render "filters/stages", filter: filter %>
-    <%= render "filters/tags", filter: filter %>
-    <%= render "filters/assignees", filter: filter %>
-    <%= render "filters/creators", filter: filter %>
+    <%#= render "filters/buckets", filter: filter %>
+    <%#= render "filters/indexed_by", filter: filter %>
+    <%#= render "filters/stages", filter: filter %>
+    <%#= render "filters/tags", filter: filter %>
+    <%#= render "filters/assignees", filter: filter %>
+    <%#= render "filters/creators", filter: filter %>
 
     <% filter.terms.each do |term| %>
-      <%= filter_chip_tag %Q("#{term}"), filter.as_params_without(:terms, term) %>
+      <%#= filter_chip_tag %Q("#{term}"), filter.as_params_without(:terms, term) %>
     <% end %>
 
     <% if any_filters?(filter) %>
-      <%= link_to bubbles_path, class: "btn btn--remove txt-small" do %>
+      <%= link_to bubbles_path, class: "btn btn--remove txt-small", hidden: true do %>
         <%= icon_tag "close" %>
         <span class="for-screen-reader">Clear all</span>
       <% end %>
