@@ -53,7 +53,13 @@
           <% end %>
         </dialog>
       </div>
-      <%#= render "bubbles/filters", filter: @filter %>
+
+      <div class="card-sorting__filter flex-inline">
+        <button class="btn borderless txt-medium">
+          <%= icon_tag "sort-descending", size: 24, aria: { hidden: true } %>
+          <span class="for-screen-reader">Sort </span>
+        </button>
+      </div> 
     </header>
 
     <% if (bucket = @filter.buckets.first) && @filter.buckets.one? %>

@@ -183,6 +183,18 @@
   }
 }
 
+.card-sorting__filter {
+  inset: auto 50% -3em;
+  margin-inline-start: -1em;
+  position: absolute;
+  transform: translateX(-50%);
+
+  #header:has(&) {
+    position: relative;
+    z-index: 1;
+  }
+}
+
 .card__container {
   --actions-block-inset: 1.5rem;
   --actions-inline-inset: 4rem;
