@@ -1,5 +1,4 @@
 <%= messages_tag(bubble) do %>
-  <%# Template Dependency: comments/comment %>
   <%= render partial: "messages/message", collection: bubble.messages, cached: true %>
   <%= render "comments/new", bubble: bubble, cached: true %>
 
