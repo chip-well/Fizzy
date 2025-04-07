@@ -4,10 +4,10 @@
 
     <div class="flex flex-column full-width popup__list">
       <% @bubble.bucket.users.active.alphabetically.each do |user| %>
-        <div class="btn popup__item">
-          <%= button_to user.name, bubble_assignments_path(@bubble, params: { assignee_id: user.id }), method: :post %>
-          <%= icon_tag "check", size: 18, class: "checked flex-item-justify-end" if @bubble.assignees.include?(user) %>
-        </div>
+          <%= button_to bubble_assignments_path(@bubble, params: { assignee_id: user.id }), method: :post, class: "btn popup__item full-width" do %>
+            <span class="overflow-ellipsis"><%= user.name %></span>
+            <%= icon_tag "check", size: 18, class: "checked flex-item-justify-end" if @bubble.assignees.include?(user) %>
+          <% end %>
       <% end %>
     </div>
   </dialog>

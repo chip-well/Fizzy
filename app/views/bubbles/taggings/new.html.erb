@@ -10,12 +10,12 @@
       <% end %>
     <% end %>
 
-    <div class: "flex flex-column full-width popup__list">
+    <div class="flex flex-column full-width popup__list">
       <% @tags.each do |tag| %>
-        <div class="btn popup__item">
-          <%= button_to tag.hashtag, bubble_taggings_path(@bubble, params: { tag_title: tag.title }), method: :post %>
-          <%= icon_tag "check", size: 18, class: "checked flex-item-justify-end" if @bubble.tagged_with?(tag) %>
-        </div>
+          <%= button_to bubble_taggings_path(@bubble, params: { tag_title: tag.title }), method: :post, class: "btn full-width popup__item" do %>
+            <span class="overflow-ellipsis"><%= tag.hashtag %></span>
+            <%= icon_tag "check", size: 18, class: "checked flex-item-justify-end" if @bubble.tagged_with?(tag) %>
+        <% end %>
       <% end %>
     </div>
   </dialog>
