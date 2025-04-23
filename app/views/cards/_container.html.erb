@@ -5,8 +5,6 @@
   <aside class="card-perma__actions card-perma__actions--left" role="toolbar">
     <%= render "cards/container/gild", card: card if card.doing? %>
     <%= render "cards/container/image", card: card %>
-
-    <%= button_to_delete_card(card) %>
   </aside>
 
   <div class="card-perma__bg">

@@ -33,9 +33,9 @@ module CardsHelper
 
   def button_to_delete_card(card)
     button_to collection_card_path(card.collection, card),
-        method: :delete, class: "btn", data: { turbo_confirm: "Are you sure you want to delete this?" } do
+        method: :delete, class: "btn txt-negative borderless txt-small", data: { turbo_frame: "_top", turbo_confirm: "Are you sure you want to permanently delete this card?" } do
       concat(icon_tag("trash"))
-      concat(tag.span("Delete", class: "for-screen-reader"))
+      concat(tag.span("Delete this card"))
     end
   end
 end
