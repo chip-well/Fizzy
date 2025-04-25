@@ -3,12 +3,12 @@
 <% if earliest.present? %>
   <% if earliest == latest %>
     <div class="events--none txt-align-center">
-      <h2 class="txt-medium margin-none"><%= event_day_title(earliest) %></h2>
+      <h2 class="txt-medium margin-none"><%= local_datetime_tag earliest, style: :agoorweekday, class: "txt-ink txt-capitalize" %></h2>
       <p class="margin-none">No activity</p>
     </div>
   <% elsif earliest < latest %>
     <div class="events--none txt-align-center">
-      <h2 class="txt-medium margin-none"><%= event_day_title(earliest) %> – <%= event_day_title(latest) %></h2>
+      <h2 class="txt-medium margin-none"><%= local_datetime_tag earliest, style: :agoorweekday, class: "txt-ink txt-capitalize" %> – <%= local_datetime_tag latest, style: :agoorweekday, class: "txt-ink txt-capitalize" %></h2>
       <p class="margin-none">No activity for <%= (latest - earliest).seconds.in_days.round + 1 %> days</p>
     </div>
   <% end %>

@@ -4,7 +4,7 @@
     <h2 class="txt-medium events__day-header center">
       <span class="events__day-header-content">
         <% # TODO: Create proper format to match desired behavior: Today, tomorrow or date %>
-        <%= local_datetime_tag day_timeline.day, style: :daysago, class: "txt-ink" %>
+        <%= local_datetime_tag day_timeline.day, style: :agoorweekday, class: "txt-ink" %>
       </span>
     </h2>
 
@@ -19,7 +19,7 @@
 
             <%= local_datetime_tag events.first.created_at, class: "event__timestamp txt-small translucent" %>
           <% end %>
-        <% end %> 
+        <% end %>
       <% end %>
     </div>
 
