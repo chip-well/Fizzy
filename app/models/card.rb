@@ -11,7 +11,7 @@ class Card < ApplicationRecord
 
   has_markdown :description
 
-  before_save :set_default_title
+  before_save :set_default_title, if: :published?
 
   scope :reverse_chronologically, -> { order created_at: :desc, id: :desc }
   scope :chronologically, -> { order created_at: :asc, id: :asc }
@@ -33,6 +33,6 @@ class Card < ApplicationRecord
 
   private
     def set_default_title
-      self.title = "Untitled" if published? && title.blank?
+      self.title = "Untitled" if published?
     end
 end
