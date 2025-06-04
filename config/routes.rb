@@ -3,6 +3,11 @@ Rails.application.routes.draw do
 
   resource :account do
     resource :join_code, module: :accounts
+
+    scope module: :accounts do
+      resource :settings
+      resource :entropy_configuration
+    end
   end
 
   resources :users do

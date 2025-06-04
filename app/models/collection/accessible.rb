@@ -32,6 +32,10 @@ module Collection::Accessible
     accesses.find_by(user: user)
   end
 
+  def accessible_by?(user)
+    access_for(user).present?
+  end
+
   private
     def grant_access_to_everyone
       accesses.grant_to(User.all) if all_access_previously_changed?(to: true)
