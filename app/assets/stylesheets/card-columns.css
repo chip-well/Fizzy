@@ -82,6 +82,32 @@
     .card__hide-on-index {
       display: none;
     }
+
+    .card__background {
+      .card:has(& img:not([src=""])) {
+        .card__body,
+        .card__footer,
+        .workflow-stage:not(.workflow-stage--current) {
+          opacity: 0;
+          transition: opacity 0.2s ease-in-out;
+        
+          @media (any-hover: hover) {
+            .card:hover & {
+              opacity: 1;
+            }
+          }
+        }
+      }
+  
+      @media (any-hover: hover) {
+        .card:hover & {
+          img:not([src=""]) {
+            filter: blur(3px) brightness(1.2);
+            opacity: 0.2;
+          }
+        }
+      }
+    }
   }
 
   .cards__heading {
@@ -117,14 +143,9 @@
       box-shadow: none !important;
     }
 
-    .card__background {
-      display: none;
-    }
-
     .card__collection {
       background-color: var(--color-canvas);
       color: color-mix(in srgb, var(--card-color) 40%, var(--color-ink));
-      padding: 0 0 0 var(--inline-space);
     }
 
     .card__collection-name {
@@ -134,7 +155,6 @@
 
     .card__header {
       color: color-mix(in srgb, var(--card-color) 40%, var(--color-ink));
-      margin: 0 0 calc(-0.5 * var(--card-padding-inline)) 0;
     }
 
     .card__title {
@@ -197,7 +217,6 @@
         max-inline-size: 110ch;
         padding-block: 0 var(--cards-gap);
 
-        .card__background,
         .card__meta {
           display: none;
         }

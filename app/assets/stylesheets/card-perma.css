@@ -32,6 +32,11 @@
       border: none;
     }
 
+    .card__background {
+      filter: brightness(1.2) contrast(0.8);
+      opacity: 0.2;
+    }
+
     .card__meta,
     .card__stages {
       font-size: var(--text-small);

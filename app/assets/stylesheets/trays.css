@@ -217,6 +217,10 @@
       }
     }
 
+    .card__background {
+      display: none;
+    }
+
     .card__collection {
       padding-block: 0.25ch;
     }
