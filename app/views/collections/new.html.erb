@@ -1,8 +1,11 @@
 <% @page_title = "Create a new collection" %>
 
 <% content_for :header do %>
-  <nav>
-    <%= link_to_home icon: "arrow-left", label: "Go back", class: "flex-item-justify-start" %>
+  <nav class="header">
+    <div class="header__actions header__actions--start">
+      <%= link_to_home icon: "arrow-left", label: "Go back" %>
+    </div>
+    <div class="header__actions header__actions--end"></div>
   </nav>
 <% end %>
 

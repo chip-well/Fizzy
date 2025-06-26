@@ -1,17 +1,19 @@
 <% @page_title = "Account Settings" %>
 
 <% content_for :header do %>
-  <nav>
-    <%= link_to_back fallback_path: root_path %>
+  <nav class="header">
+    <div class="header__actions header__actions--start">
+      <%= link_to_back fallback_path: root_path %>
+    </div>
 
-    <header class="center">
-      <h1 class="txt-large margin-none"><%= @page_title %></h1>
-    </header>
+    <h1 class="header__title"><%= @page_title %></h1>
 
-    <%= link_to workflows_path, class: "btn flex-item-justify-end" do %>
-      <%= icon_tag "bolt" %>
-      <span class="for-screen-reader">Workflows</span>
-    <% end %>
+    <div class="header__actions header__actions--end">
+      <%= link_to workflows_path, class: "btn flex-item-justify-end" do %>
+        <%= icon_tag "bolt" %>
+        <span class="for-screen-reader">Workflows</span>
+      <% end %>
+    </div>
   </nav>
 <% end %>
 

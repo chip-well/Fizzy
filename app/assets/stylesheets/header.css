@@ -14,6 +14,14 @@
     &:has(.header__actions > *:nth-child(1)) { --header-button-count: 1; }
     &:has(.header__actions > *:nth-child(2)) { --header-button-count: 2; }
     &:has(.header__actions > *:nth-child(3)) { --header-button-count: 3; }
+
+    &:not(:has(.header__title)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &:not(:has(.header__actions)) {
+      grid-template-columns: 1fr;
+    }
   }
 
   .header__actions {
@@ -28,6 +36,7 @@
   .header__title {
     font-size: var(--text-large);
     font-weight: 900;
-    margin: 0;
+    margin: 0 auto;
+    text-align: center;
   }
 }

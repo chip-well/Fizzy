@@ -1,15 +1,19 @@
 <% @page_title = @user.name %>
 
 <% content_for :header do %>
-  <nav>
-    <%= link_to_back %>
+  <nav class="header">
+    <div class="header__actions header__actions--start">
+      <%= link_to_back %>
+    </div>
 
-    <% if Current.user == @user %>
-      <%= link_to edit_user_path(@user), class: "btn flex-item-justify-end" do %>
-        <%= icon_tag "pencil" %>
-        <span class="for-screen-reader">Edit</span>
+    <div class="header__actions header__actions--end">
+      <% if Current.user == @user %>
+        <%= link_to edit_user_path(@user), class: "btn flex-item-justify-end" do %>
+          <%= icon_tag "pencil" %>
+          <span class="for-screen-reader">Edit</span>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </nav>
 <% end %>
 

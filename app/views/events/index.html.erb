@@ -1,8 +1,8 @@
 <% @page_title = "Home" %>
 
 <% content_for :header do %>
-  <nav class="align-start">
-    <header class="flex flex-inline flex-column center flex-shrink">
+  <nav class="header">
+    <header class="header__title">
       <%= render "events/filter", filter: @filter %>
     </header>
   </nav>

@@ -1,12 +1,14 @@
 <% @page_title = "Notifications settings" %>
 
 <% content_for :header do %>
-  <nav class="align-start">
-    <%= link_to_back fallback_path: notifications_path %>
+  <nav class="header">
+    <div class="header__actions header__actions--start">
+      <%= link_to_back fallback_path: notifications_path %>
+    </div>
 
-    <h1 class="txt-x-large"><%= @page_title %></h1>
+    <h1 class="header__title"><%= @page_title %></h1>
 
-    <div class="btn btn--placeholder flex-item-justify-end"></div>
+    <div class="header__actions header__actions--end"></div>
   </nav>
 <% end %>
 
