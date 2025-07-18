@@ -42,37 +42,37 @@ class NotificationPusher
         {
           title: "RE: #{card_notification_title(card)}",
           body: comment_notification_body(event),
-          path: collection_card_url(card.collection, card)
+          path: collection_card_path(card.collection, card)
         }
       when "card_assigned"
         {
           title: card_notification_title(card),
           body: "Assigned to you by #{event.creator.name}",
-          path: collection_card_url(card.collection, card)
+          path: collection_card_path(card.collection, card)
         }
       when "card_published"
         {
           title: card_notification_title(card),
           body: "Added by #{event.creator.name}",
-          path: collection_card_url(card.collection, card)
+          path: collection_card_path(card.collection, card)
         }
       when "card_closed"
         {
           title: card_notification_title(card),
           body: card.closure ? "Closed as \"#{card.closure.reason}\" by #{event.creator.name}" : "Closed by #{event.creator.name}",
-          path: collection_card_url(card.collection, card)
+          path: collection_card_path(card.collection, card)
         }
       when "card_reopened"
         {
           title: card_notification_title(card),
           body: "Reopened by #{event.creator.name}",
-          path: collection_card_url(card.collection, card)
+          path: collection_card_path(card.collection, card)
         }
       else
         {
           title: card_notification_title(card),
           body: event.creator.name,
-          path: collection_card_url(card.collection, card)
+          path: collection_card_path(card.collection, card)
         }
       end
     end
@@ -84,7 +84,7 @@ class NotificationPusher
       {
         title: "#{mention.mentioner.first_name} mentioned you",
         body: mention.source.mentionable_content.truncate(200),
-        path: collection_card_url(card.collection, card)
+        path: collection_card_path(card.collection, card)
       }
     end
 
@@ -92,7 +92,7 @@ class NotificationPusher
       {
         title: "New notification",
         body: "You have a new notification",
-        path: notifications_url
+        path: notifications_path
       }
     end
 
