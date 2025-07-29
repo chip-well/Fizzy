@@ -74,6 +74,11 @@
         display: flex;
         text-wrap: nowrap;
       }
+
+      @media (max-width: 639px) {
+        font-size: var(--text-x-small);
+        font-weight: 500;
+      }
     }
   }
 }
