@@ -73,8 +73,9 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
-  # Set host to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: "fizzy.37signals.com", protocol: "https" }
+  # Set host to be used by links generated in mailer and notification view templates.
+  config.action_controller.default_url_options = { host: "fizzy.37signals.com", protocol: "https" }
+  config.action_mailer.default_url_options     = { host: "fizzy.37signals.com", protocol: "https" }
 
   config.action_mailer.smtp_settings = { domain: "fizzy.37signals.com", address: "smtp-outbound", port: 25, enable_starttls_auto: false }
 

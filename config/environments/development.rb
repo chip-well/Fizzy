@@ -39,9 +39,6 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  # Set host to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: "%{tenant}.example.com", port: 3006 }
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -81,8 +78,9 @@ Rails.application.configure do
 
   config.hosts = %w[ fizzy.localhost localhost 127.0.0.1 ]
 
-  # Host to be used in links rendered from ActionMailer
-  config.action_mailer.default_url_options = { host: config.hosts.first, port: 3006 }
+  # Set host to be used by links generated in mailer and notification view templates.
+  config.action_controller.default_url_options = { host: config.hosts.first, port: 3006 }
+  config.action_mailer.default_url_options     = { host: config.hosts.first, port: 3006 }
 
   if Rails.root.join("tmp/solid-queue.txt").exist?
     config.active_job.queue_adapter = :solid_queue
