@@ -23,10 +23,6 @@ class PeriodHighlights < ApplicationRecord
           end
         end
       end
-
-      def key_for(events)
-        Digest::SHA256.hexdigest(events.ids.sort.join("-"))
-      end
   end
 
   def ends_at
