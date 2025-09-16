@@ -1,8 +1,4 @@
-<%= link_to collection_webhooks_path(collection_id: collection), class: "btn tooltip" do %>
-  <% if collection.webhooks.any? %>
-    <%= icon_tag "globe" %>
-  <% else %>
-    <%= icon_tag "world" %>
-  <% end %>
-  <span class="for-screen-reader">Webhooks for <%= collection.name %></span>
+<%= link_to collection_webhooks_path(collection_id: collection), class: ["btn tooltip", {"btn--reversed": collection.webhooks.any?}] do %>
+  <%= icon_tag "world" %>
+  <span class="for-screen-reader">Webhooks</span>
 <% end %>
