@@ -5,7 +5,7 @@ module PaginationHelper
 
   def link_to_next_page(namespace, page, activate_when_observed: false, label: "Load more...", data: {}, **attributes)
     if page.before_last? && !params[:previous]
-      pagination_link(namespace, page.number + 1, label: label, activate_when_observed: activate_when_observed, data: data, class: "margin-block btn txt-small", **attributes)
+      pagination_link(namespace, page.number + 1, label: label, activate_when_observed: activate_when_observed, data: data, class: "margin-block btn txt-small center", **attributes)
     end
   end
 
