@@ -1,6 +1,7 @@
 <%= form_with model: [collection, column], data: { controller: "form", action: "turbo:submit-end->dialog#close turbo:submit-end->form#reset" } do |form| %>
   <%= form.text_field :name, class: "input", placeholder: "Name this column", value: column.name,
         required: true, autocomplete: "off", pattern: ".*\\S.*", title: "Column name cannot be blank", data: { action: "focus->form#select" } %>
+
   <div class="color-picker__colors">
     <% ([Card::DEFAULT_COLOR] + Card::COLORS).each do |color| %>
       <label class="btn txt-small borderless" style="--btn-background: <%= color %>" title="<%= color %>">

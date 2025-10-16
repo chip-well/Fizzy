@@ -43,4 +43,11 @@ export default class extends Controller {
   closeOnClickOutside({ target }) {
     if (!this.element.contains(target)) this.close()
   }
+
+  preventCloseOnMorphing(event) {
+    if (event.detail?.attributeName === "open") {
+      event.preventDefault()
+      event.stopPropagation()
+    }
+  }
 }

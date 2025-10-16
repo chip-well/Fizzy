@@ -1,4 +1,4 @@
-<div class="cards__expander-menu" data-controller="dialog" data-action="keydown.esc->dialog#close click@document->dialog#closeOnClickOutside" data-turbo-permanent>
+<div id="<%= dom_id(column, :menu) %>" class="cards__expander-menu" data-controller="dialog" data-action="keydown.esc->dialog#close click@document->dialog#closeOnClickOutside">
   <button class="btn btn--circle txt-x-small borderless" data-action="click->dialog#open">
     <%= icon_tag "menu-dots-horizontal", class: "translucent" %>
     <span class="for-screen-reader">Column options</span>
@@ -26,7 +26,7 @@
 
   <div data-controller="dialog" data-action="keydown.esc->dialog#close click@document->dialog#closeOnClickOutside">
     <button id="<%= dom_id(column, :manage_menu) %>" class="popup__btn btn" data-action="click->dialog#open:stop" data-clicker-target="clickable" hidden aria-hidden>Save changes</button>
-    <dialog class="popup panel flex-column gap-half fill-white shadow txt-small margin-block-double" data-dialog-target="dialog">
+    <dialog class="popup panel flex-column gap-half fill-white shadow txt-small margin-block-double" data-dialog-target="dialog" data-action="turbo:before-morph-attribute->dialog#preventCloseOnMorphing">
       <%= render "collections/show/menu/column_form", collection: column.collection, column: column, label: "Save changes" %>
     </dialog>
   </div>
