@@ -1,9 +1,5 @@
 <% @page_title = "Edit your profile" %>
 
-<% content_for :header do %>
-  <%= render "my/menus/menu" %>
-<% end %>
-
 <div class="panel shadow center" style="--panel-size: 45ch;">
   <div class="flex flex-column gap txt-medium">
     <%= form_with model: @user, method: :patch, class: "flex flex-column gap", data: { controller: "form upload-preview" } do |form| %>

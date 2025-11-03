@@ -1,7 +1,6 @@
 <% @page_title = "Add people" %>
 
 <% content_for :header do %>
-  <%= render "my/menus/menu" %>
   <div class="header__actions header__actions--start">
     <%= link_to account_settings_path, class: "btn borderless txt-medium", data: { controller: "hotkey", action: "keydown.esc@document->hotkey#click" } do %>
       <span class="overflow-ellipsis">&larr; <strong>Account Settings</strong></span>
