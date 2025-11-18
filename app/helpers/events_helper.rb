@@ -9,7 +9,7 @@ module EventsHelper
       "comment"
     when "card_title_changed"
       "rename"
-    when "card_board_changed"
+    when "card_board_changed", "card_triaged", "card_postponed"
       "move"
     else
       "person"
