@@ -99,10 +99,6 @@
     max-inline-size: var(--comment-max);
     text-align: center;
 
-    .comments--system-expanded & {
-      display: flex;
-    }
-
     &::before {
       /* Make up space for lack of avatar */
       content: "";
