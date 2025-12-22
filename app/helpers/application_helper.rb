@@ -1,8 +1,4 @@
 module ApplicationHelper
-  def stylesheet_link_tags
-    stylesheet_link_tag *platform.stylesheet_paths, "data-turbo-track": "reload"
-  end
-
   def page_title_tag
     account_name = if Current.account && Current.session&.identity&.users&.many?
       Current.account&.name
@@ -12,12 +8,6 @@ module ApplicationHelper
 
   def icon_tag(name, **options)
     tag.span class: class_names("icon icon--#{name}", options.delete(:class)), "aria-hidden": true, **options
-  end
-
-  def inline_svg(name)
-    file_path = "#{Rails.root}/app/assets/images/#{name}.svg"
-    return File.read(file_path).html_safe if File.exist?(file_path)
-    "(not found)"
   end
 
   def back_link_to(label, url, action, **options)
