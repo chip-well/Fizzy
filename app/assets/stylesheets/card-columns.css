@@ -149,7 +149,7 @@
     }
 
     .no-transitions & {
-      /* transition: none; */
+      transition: none;
     }
   }
 
@@ -322,7 +322,7 @@
     }
 
     .no-transitions &:after {
-      /* transition: none; */
+      transition: none;
     }
 
     .cards.is-collapsed & {
