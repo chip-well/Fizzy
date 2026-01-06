@@ -2,7 +2,7 @@
 <html lang="en">
   <%= render "layouts/shared/head" %>
 
-  <body data-controller="local-time timezone-cookie turbo-navigation theme" data-action="turbo:morph@window->local-time#refreshAll turbo:before-visit@document->turbo-navigation#rememberLocation" data-platform="<%= platform.type %>">
+  <body data-controller="bridge--page local-time timezone-cookie turbo-navigation theme" data-action="turbo:morph@window->local-time#refreshAll turbo:before-visit@document->turbo-navigation#rememberLocation" data-platform="<%= platform.type %>" <%= "data-bridge--page-title-value=#{@page_title.to_json}" if @page_title %>>
     <header class="header header--mobile-actions-stack <%= @header_class %>" id="header">
       <a href="#main" class="header__skip-navigation btn" data-turbo="false">Skip to main content</a>
       <%= render "my/menu" if Current.user %>
