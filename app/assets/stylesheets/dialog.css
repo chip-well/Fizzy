@@ -35,4 +35,11 @@
       }
     }
   }
+
+  /* Ensure padding from viewport edges on narrow screens */
+  @media (max-width: 639px) {
+    .dialog.panel {
+      max-inline-size: 94vw;
+    }
+  }
 }
